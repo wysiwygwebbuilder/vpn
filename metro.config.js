@@ -9,14 +9,4 @@ config.resolver.unstable_enablePackageExports = true;
 // Enable caching for faster rebuilds
 config.cacheVersion = 'v1';
 
-// Minify only in production
-config.minifierConfig = {
-  compress: {
-    dead_code: true,
-    drop_debugger: true,
-    evaluate: true,
-    unused: true,
-  },
-};
-
 module.exports = withNativeWind(config, { input: './src/global.css' });
