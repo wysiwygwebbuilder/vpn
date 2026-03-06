@@ -16,18 +16,12 @@
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease"
       },
-      "distribution": "internal",
-      "env": {
-        "NODE_ENV": "production"
-      }
+      "distribution": "internal"
     },
     "production": {
       "android": {
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease"
-      },
-      "env": {
-        "NODE_ENV": "production"
       }
     }
   },
