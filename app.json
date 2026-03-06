@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Феникс VPN",
+    "slug": "phoenix-vpn",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "phoenix-vpn",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f97316"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.phoenix.vpn"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#f97316",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": true,
+      "package": "com.phoenix.vpn"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "6b94faab-1690-494b-b0ec-b93da59d571e"
+      }
+    }
+  }
+}
