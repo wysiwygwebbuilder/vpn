@@ -1,0 +1,18 @@
+# Build artifacts
+android/app/build/
+android/.gradle/
+android/app/src/main/assets/index.android.bundle
+
+# Logs
+*.log
+android/hs_err_pid*.log
+android/replay_pid*.log
+
+# IDE
+.idea/
+
+# Batch scripts
+*.bat
+
+# Images (already in assets)
+images/
