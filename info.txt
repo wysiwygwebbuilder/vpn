@@ -1,75 +1,60 @@
-ИСПРАВЛЕНО! Готово к быстрой сборке Android APK
+PHOENIX VPN - СБОРКА ЧЕРЕЗ EAS BUILD
 
 ═══════════════════════════════════════════════════════════════
 
-ЧТО БЫЛО СДЕЛАНО ДЛЯ УСКОРЕНИЯ СБОРКИ:
+ОБЛАЧНАЯ СБОРКА (РЕКОМЕНДУЕТСЯ):
 
-✓ Создан build-bundle.bat - статический бандл (Metro НЕ запускается!)
-✓ Добавлены .env и .env.local с NODE_ENV=production
-✓ Отключена телеметрия Expo (EXPO_NO_TELEMETRY=1)
-✓ Оптимизирован metro.config.js:
-  - Включено кэширование
-  - Отключен watchman на Windows
-  - Включена быстрая резолюция пакетов
-✓ Улучшен build-apk.bat:
-  - G1GC для быстрой сборки мусора
-  - Сборка без clean (быстрее), если не меняли нативный код
-  - Автоматический fallback на clean при ошибке
-✓ Улучшен build-full.bat:
-  - Production окружение
-  - Отключена телеметрия
+  eas build --platform android --profile preview
+
+Преимущества:
+✓ Не нужен Docker
+✓ Воспроизводимые сборки
+✓ Автоматическое управление ключами
+✓ Логи доступны онлайн
 
 ═══════════════════════════════════════════════════════════════
 
-КАК СОБРАТЬ APK (БЫСТРЫЙ СПОСОБ):
+ЛОКАЛЬНАЯ СБОРКА (требует Docker):
 
-СПОСОБ 1: Полная автоматическая сборка (РЕКОМЕНДУЕТСЯ):
+  eas build --platform android --profile preview --local
+
+Требования:
+- Docker Desktop установлен и запущен
+- Минимум 8GB RAM
+- ~10GB свободного места
+
+═══════════════════════════════════════════════════════════════
+
+БЫСТРАЯ ЛОКАЛЬНАЯ СБОРКА (без EAS):
+
   build-full.bat
 
-Этот скрипт:
-1. Создает статический JavaScript бандл через Expo
-2. Gradle использует готовый бандл (Metro НЕ запускается!)
-3. Собирает release APK
-
-СПОСОБ 2: Пошаговая сборка (для повторных сборок):
-  Первый раз: build-full.bat
-  После изменений в JS: build-bundle.bat + build-apk.bat
-  После изменений в Android: только build-apk.bat
-
-СПОСОБ 3: Вручную:
-  npx expo export:embed --platform android --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res --dev false --minify true
-  cd android
-  gradlew assembleRelease --no-daemon --max-workers=2
-  cd ..
+Использует Gradle напрямую, быстрее но менее надежно.
 
 ═══════════════════════════════════════════════════════════════
 
-ПОЧЕМУ ТЕПЕРЬ БЫСТРЕЕ:
+ПРОФИЛИ СБОРКИ:
 
-1. СТАТИЧЕСКИЙ БАНДЛ - Metro не запускается во время Gradle
-2. КЭШИРОВАНИЕ - повторные сборки используют кэш
-3. G1GC - быстрый сборщик мусора для JVM
-4. БЕЗ CLEAN - не пересобирает всё заново если не меняли нативный код
-5. ОДИН АРХИТЕКТУРА - только arm64-v8a (меньше и быстрее)
+- preview: APK для тестирования (internal distribution)
+- production: APK для релиза
+- development: Development client с hot reload
 
 ═══════════════════════════════════════════════════════════════
 
-ГОТОВЫЙ APK БУДЕТ ЗДЕСЬ:
-  android\app\build\outputs\apk\release\app-release.apk
+ИСПРАВЛЕНИЯ:
+
+✓ Обновлен react-native-safe-area-context до 5.7.0
+✓ Добавлен postcss.config.js для NativeWind
+✓ Исправлен импорт global.css в _layout.tsx
+✓ Упрощен build.gradle для совместимости с EAS
+✓ Добавлен импорт JSONObject в VpnModule.kt
+✓ Создан react-native.config.js для autolinking
 
 ═══════════════════════════════════════════════════════════════
 
-ВАЖНО:
+ГОТОВЫЙ APK:
 
-• Если изменили JS код - запустите build-bundle.bat заново
-• Если только меняли настройки Android - достаточно build-apk.bat
-• Если меняли нативный код (android/) - используйте build-full.bat
-• Gradle автоматически определяет наличие статического бандла
-• Предупреждения про "package= found in AndroidManifest.xml" можно игнорировать
-
-═══════════════════════════════════════════════════════════════
-
-ПЕРВАЯ СБОРКА МОЖЕТ БЫТЬ ДОЛГОЙ (загрузка зависимостей)
-ПОВТОРНЫЕ СБОРКИ БУДУТ ЗНАЧИТЕЛЬНО БЫСТРЕЕ (кэш Gradle)
+Облачная сборка: скачивается по ссылке из EAS
+Локальная сборка: android/app/build/outputs/apk/release/app-release.apk
 
 ═══════════════════════════════════════════════════════════════
