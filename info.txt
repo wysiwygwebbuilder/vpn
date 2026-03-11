@@ -1,60 +1,361 @@
-PHOENIX VPN - СБОРКА ЧЕРЕЗ EAS BUILD
+﻿FENIKS ROUTE - BUILD INSTRUCTIONS
 
-═══════════════════════════════════════════════════════════════
+Last updated: 2026-03-07
+Project root: D:\OSPanel\domains\proxi-mob.loc
+Primary Android package: com.phoenix.vpn
+Primary EAS project slug: phoenix-vpn
+Primary deep link scheme: feniks-route
 
-ОБЛАЧНАЯ СБОРКА (РЕКОМЕНДУЕТСЯ):
+============================================================
+1. WHAT THIS PROJECT IS
+============================================================
 
+This is an Expo / React Native application with Expo Router.
+Android build includes native VPN code and sing-box integration.
+Main cloud build path is EAS Build.
+
+Important identities that must stay consistent:
+- app.json -> expo.slug = phoenix-vpn
+- app.json -> expo.extra.eas.projectId = 6b94faab-1690-494b-b0ec-b93da59d571e
+- package.json -> name = phoenix-vpn
+- app.json -> android.package = com.phoenix.vpn
+- app.json -> ios.bundleIdentifier = com.phoenix.vpn
+- app.json -> scheme = feniks-route
+
+Do not casually rename slug, package name, bundle identifier, or scheme.
+If you change them, EAS build or native integration can break.
+
+============================================================
+2. CANONICAL BUILD PATHS
+============================================================
+
+Recommended cloud Android build:
   eas build --platform android --profile preview
 
-Преимущества:
-✓ Не нужен Docker
-✓ Воспроизводимые сборки
-✓ Автоматическое управление ключами
-✓ Логи доступны онлайн
+Production cloud Android build:
+  eas build --platform android --profile production
 
-═══════════════════════════════════════════════════════════════
+Development client cloud build:
+  eas build --platform android --profile development
 
-ЛОКАЛЬНАЯ СБОРКА (требует Docker):
-
+Local EAS build with Docker:
   eas build --platform android --profile preview --local
 
-Требования:
-- Docker Desktop установлен и запущен
-- Минимум 8GB RAM
-- ~10GB свободного места
+Direct Gradle release build:
+  cd android
+  .\gradlew.bat assembleRelease
 
-═══════════════════════════════════════════════════════════════
+Notes:
+- Use cloud EAS build by default.
+- Use local EAS build only when Docker is installed and running.
+- Use direct Gradle build only when debugging native Android issues.
 
-БЫСТРАЯ ЛОКАЛЬНАЯ СБОРКА (без EAS):
+============================================================
+3. REQUIRED TOOLS
+============================================================
 
-  build-full.bat
+Minimum environment:
+- Node.js installed
+- npm installed
+- EAS CLI available through npx or global install
+- Android SDK for local native builds
+- Docker Desktop only for --local EAS builds
 
-Использует Gradle напрямую, быстрее но менее надежно.
+Recommended checks:
+  node -v
+  npm -v
+  npx expo --version
+  npx eas-cli --version
 
-═══════════════════════════════════════════════════════════════
+============================================================
+4. PRE-BUILD CHECKLIST
+============================================================
 
-ПРОФИЛИ СБОРКИ:
+Run these from project root before any important build:
+  npm install
+  npm run lint
+  npx expo config --json
 
-- preview: APK для тестирования (internal distribution)
-- production: APK для релиза
-- development: Development client с hot reload
+For Android bundle validation before cloud build:
+  npx expo export:embed --eager --platform android --dev false
 
-═══════════════════════════════════════════════════════════════
+If all four commands succeed, JS/Expo/Babel config is usually healthy.
 
-ИСПРАВЛЕНИЯ:
+============================================================
+5. KNOWN GOOD CONFIG
+============================================================
 
-✓ Обновлен react-native-safe-area-context до 5.7.0
-✓ Добавлен postcss.config.js для NativeWind
-✓ Исправлен импорт global.css в _layout.tsx
-✓ Упрощен build.gradle для совместимости с EAS
-✓ Добавлен импорт JSONObject в VpnModule.kt
-✓ Создан react-native.config.js для autolinking
+Current working Babel config:
+File: babel.config.js
 
-═══════════════════════════════════════════════════════════════
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ['babel-preset-expo', 'nativewind/babel'],
+  };
+};
 
-ГОТОВЫЙ APK:
+Why this matters:
+- NativeWind 4 must be configured through presets in this project.
+- Do not put nativewind/babel inside plugins.
+- Do not add react-native-reanimated/plugin here with the current package set.
+- NativeWind 4 already pulls the needed worklets transform path in this stack.
 
-Облачная сборка: скачивается по ссылке из EAS
-Локальная сборка: android/app/build/outputs/apk/release/app-release.apk
+Current working Metro config:
+- Uses expo/metro-config
+- Wraps config with nativewind/metro
+- Input CSS file is ./src/global.css
 
-═══════════════════════════════════════════════════════════════
+============================================================
+6. BUILD PROFILES
+============================================================
+
+preview:
+- Main testing build
+- Produces APK
+- Distribution is internal
+- Preferred default command
+
+production:
+- Release-oriented Android build
+- Currently also produces APK
+- Use when preparing final release artifact
+
+development:
+- Development client build
+- Use for debugging app with native code changes
+
+Profile config lives in eas.json.
+Do not change profile behavior unless there is a real reason.
+
+============================================================
+7. EAS PROJECT RULES
+============================================================
+
+Critical rule:
+expo.slug must match the slug of the EAS project linked by extra.eas.projectId.
+
+Current valid pair:
+- slug: phoenix-vpn
+- projectId: 6b94faab-1690-494b-b0ec-b93da59d571e
+
+If build fails with message like:
+  Slug for project identified by extra.eas.projectId (...) does not match the slug field (...)
+Then fix app.json so slug matches the existing EAS project.
+
+Do not create random new slugs unless you intentionally create a new EAS project.
+
+============================================================
+8. MOST IMPORTANT KNOWN FIXES
+============================================================
+
+Fix from 2026-03-07:
+
+Issue 1:
+- EAS build failed because expo.slug was changed to feniks-route
+- Existing EAS project linked by projectId still belonged to phoenix-vpn
+
+Resolution:
+- Set app.json -> expo.slug = phoenix-vpn
+- Set package.json -> name = phoenix-vpn
+
+Issue 2:
+- Cloud build failed during bundling with:
+  BABEL ... .plugins is not a valid Plugin property
+
+Root cause:
+- nativewind/babel was incorrectly added to Babel plugins
+- In NativeWind 4 it exports a Babel config object, not a single plugin entry
+
+Resolution:
+- Move nativewind/babel into presets
+- Remove react-native-reanimated/plugin from plugins for this stack
+
+Validation that succeeded after fix:
+  npm run lint
+  npx expo export:embed --eager --platform android --dev false
+
+============================================================
+9. SAFE BUILD WORKFLOW FOR ANY AGENT
+============================================================
+
+If you are an agent or developer touching this project, do this in order:
+
+1. Open and read:
+- app.json
+- eas.json
+- package.json
+- babel.config.js
+- metro.config.js
+- android/app/build.gradle
+
+2. Verify critical identity values:
+- slug is phoenix-vpn
+- package name is com.phoenix.vpn
+- projectId exists and is unchanged
+- scheme is feniks-route
+
+3. Install and verify JS side:
+  npm install
+  npm run lint
+  npx expo config --json
+  npx expo export:embed --eager --platform android --dev false
+
+4. Only after that start cloud build:
+  eas build --platform android --profile preview
+
+5. If cloud build fails:
+- Read the first real error, not the last summary line
+- Separate JS/Babel/Metro failures from native Android failures
+- Fix one layer at a time
+
+============================================================
+10. ERROR TRIAGE GUIDE
+============================================================
+
+A. If error mentions slug, projectId, EAS project, or project config:
+- Check app.json slug
+- Check app.json extra.eas.projectId
+- Ensure slug is phoenix-vpn
+
+B. If error mentions Babel, Metro, expo-router/entry.js, or bundling:
+- Check babel.config.js first
+- Check metro.config.js second
+- Run:
+  npx expo export:embed --eager --platform android --dev false
+- Do not debug native Android until this command passes
+
+C. If error mentions Gradle, Kotlin, AndroidManifest, AAR, or libbox:
+- Problem is in native Android layer
+- Run direct Gradle build for more detail:
+  cd android
+  .\gradlew.bat assembleRelease
+
+D. If error mentions missing module or dependency version conflict:
+- Run npm install
+- Re-check package.json and package-lock.json consistency
+- Re-run lint and export:embed
+
+============================================================
+11. SING-BOX / NATIVE VPN NOTES
+============================================================
+
+The project includes native Android VPN integration.
+Relevant paths:
+- android/app/src/main/java/com/phoenix/vpn/
+- android/app/libs/libbox.aar
+- src/services/vpnService.ts
+
+When debugging sing-box changes:
+- First confirm JS bundling still works
+- Then confirm Gradle build works
+- Then debug runtime VPN behavior
+
+Do not assume a sing-box change caused a failure if the stack trace is clearly in Babel or Expo bundling.
+
+============================================================
+12. FILES THAT MATTER MOST FOR BUILDS
+============================================================
+
+Expo / EAS:
+- app.json
+- app.ios.json
+- eas.json
+- package.json
+- package-lock.json
+- babel.config.js
+- metro.config.js
+- postcss.config.js
+- tailwind.config.js
+
+Android native:
+- android/build.gradle
+- android/settings.gradle
+- android/app/build.gradle
+- android/app/src/main/AndroidManifest.xml
+- android/app/src/main/java/com/phoenix/vpn/MainApplication.kt
+- android/app/src/main/java/com/phoenix/vpn/MainActivity.kt
+- android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt
+- android/app/src/main/java/com/phoenix/vpn/VpnModule.kt
+- android/app/libs/libbox.aar
+
+============================================================
+13. OUTPUT LOCATIONS
+============================================================
+
+Cloud EAS build:
+- Download artifact from EAS build page/link
+
+Direct local Gradle build:
+- android/app/build/outputs/apk/release/app-release.apk
+
+============================================================
+14. DO NOT BREAK THESE WITHOUT A REASON
+============================================================
+
+Do not change without understanding the consequences:
+- expo.slug
+- extra.eas.projectId
+- android.package
+- ios.bundleIdentifier
+- babel.config.js NativeWind setup
+- libbox.aar integration
+- RouteVpnService and VpnModule wiring
+
+If one of these must change, document the reason and validate the whole build chain again.
+
+============================================================
+15. FAST RECOVERY COMMANDS
+============================================================
+
+Standard validation:
+  npm run lint
+  npx expo config --json
+  npx expo export:embed --eager --platform android --dev false
+
+Cloud build:
+  eas build --platform android --profile preview
+
+Native Android debug build:
+  cd android
+  .\gradlew.bat assembleRelease
+
+============================================================
+16. ONE-LINE RULE
+============================================================
+
+Before blaming sing-box or Android native code, make sure Expo config, Babel config, and export:embed already pass.
+
+Fix from 2026-03-07 (native Kotlin safety pass):
+- RouteVpnService.kt: replaced prepare(this) with VpnService.prepare(this)
+- RouteVpnService.kt: temporarily simplified systemCertificates() to return an empty iterator
+- Reason: these are high-risk compile points on EAS release builds when Android/libbox API signatures differ
+
+Prebuild rule:
+- Do NOT run `npx expo prebuild --clean` on this project unless you intentionally want to regenerate native folders and then manually restore custom VPN/libbox code.
+- This repository already contains custom Android native code under android/app/src/main/java/com/phoenix/vpn and libbox.aar.
+- Default path is to keep android/ as source of truth and run EAS build directly.
+
+Fix from 2026-03-07 (Expo worklets autolinking / publishing):
+- Added postinstall script: `node scripts/patch-expo-worklets.js`
+- This patch modifies installed `expo-modules-core` files inside node_modules after npm install.
+- Reason: EAS build failed in Expo internals with:
+  - Task with name mergeDebugNativeLibs not found in project :react-native-worklets
+  - SoftwareComponent with name release not found
+- The patch makes Expo worklets integration and publication setup tolerant when `react-native-worklets` does not expose the old task/component names expected by expo-modules-core.
+- If npm install is re-run, postinstall reapplies the patch automatically.
+- Follow-up fix: patch-expo-worklets.js itself had a JS template-string bug on EAS.
+- Root cause: Kotlin text `${project.path}` was accidentally interpreted by Node.js during postinstall.
+- Resolution: generate that Kotlin block as plain joined strings, not as a JS-interpolated template literal.
+
+Fix from 2026-03-07 (VpnModule Kotlin API alignment):
+- Updated android/app/src/main/java/com/phoenix/vpn/VpnModule.kt to match current React Native ActivityEventListener signatures.
+- Correct signatures are:
+  - onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, data: Intent?)
+  - onNewIntent(intent: Intent)
+- Use appContext.currentActivity instead of unresolved currentActivity shortcut.
+- This fixes EAS Kotlin errors such as:
+  - does not implement abstract members
+  - Unresolved reference currentActivity
+  - onActivityResult overrides nothing
+  - onNewIntent overrides nothing

@@ -10,115 +10,96 @@ export default function AddListScreen() {
   const [addMethod, setAddMethod] = useState<'url' | 'text'>('url');
 
   const handleSave = () => {
-    // This will be handled by the parent screen via params/callback
     router.back();
   };
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      {/* Header */}
       <View className="px-6 py-4 flex-row items-center gap-4 border-b border-gray-100">
-        <TouchableOpacity
-          onPress={() => router.back()}
-          className="p-2 -ml-2 rounded-full"
-        >
+        <TouchableOpacity onPress={() => router.back()} className="p-2 -ml-2 rounded-full">
           <ChevronLeft size={24} color="#6b7280" />
         </TouchableOpacity>
-        <Text className="text-xl font-bold text-gray-900">Add List</Text>
+        <Text className="text-xl font-bold text-gray-900">{'Добавить список'}</Text>
       </View>
 
       <ScrollView className="flex-1 p-6">
         <Text className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
-          Custom Server Lists
+          {'Пользовательские списки серверов'}
         </Text>
 
         <View className="space-y-4">
-          {/* List Name Input */}
           <TextInput
             value={listName}
             onChangeText={setListName}
-            placeholder="List Name"
+            placeholder={'Название списка'}
             placeholderTextColor="#9ca3af"
             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900"
           />
 
-          {/* Toggle */}
           <View className="bg-gray-100 p-1 rounded-xl flex-row">
             <TouchableOpacity
               onPress={() => setAddMethod('url')}
               className={clsx(
-                "flex-1 py-2 rounded-lg flex-row justify-center items-center gap-2",
-                addMethod === 'url' ? "bg-orange-500" : ""
+                'flex-1 py-2 rounded-lg flex-row justify-center items-center gap-2',
+                addMethod === 'url' ? 'bg-orange-500' : ''
               )}
             >
               <LinkIcon size={14} color={addMethod === 'url' ? '#ffffff' : '#6b7280'} />
-              <Text className={clsx(
-                "text-sm font-bold",
-                addMethod === 'url' ? "text-white" : "text-gray-500"
-              )}>
+              <Text className={clsx('text-sm font-bold', addMethod === 'url' ? 'text-white' : 'text-gray-500')}>
                 URL
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => setAddMethod('text')}
               className={clsx(
-                "flex-1 py-2 rounded-lg flex-row justify-center items-center gap-2",
-                addMethod === 'text' ? "bg-white" : ""
+                'flex-1 py-2 rounded-lg flex-row justify-center items-center gap-2',
+                addMethod === 'text' ? 'bg-white' : ''
               )}
             >
               <FileText size={14} color={addMethod === 'text' ? '#000000' : '#6b7280'} />
-              <Text className={clsx(
-                "text-sm font-bold",
-                addMethod === 'text' ? "text-gray-800" : "text-gray-500"
-              )}>
-                Text
+              <Text className={clsx('text-sm font-bold', addMethod === 'text' ? 'text-gray-800' : 'text-gray-500')}>
+                {'Текст'}
               </Text>
             </TouchableOpacity>
           </View>
 
-          {/* Content Input */}
           <TextInput
             value={listContent}
             onChangeText={setListContent}
-            placeholder={addMethod === 'url' ? 'URL of server list' : 'Paste vless:// links here...'}
+            placeholder={addMethod === 'url' ? 'URL списка серверов' : 'Вставьте сюда ссылки vless://...'}
             placeholderTextColor="#9ca3af"
             multiline={addMethod === 'text'}
             numberOfLines={addMethod === 'text' ? 8 : 1}
             className={clsx(
-              "w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900",
-              addMethod === 'text' ? "h-32 font-mono" : "h-12"
+              'w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900',
+              addMethod === 'text' ? 'h-32 font-mono' : 'h-12'
             )}
           />
 
-          {/* Add Button */}
           <TouchableOpacity
             onPress={handleSave}
             disabled={!listName || !listContent}
             className={clsx(
-              "w-full py-3 rounded-xl flex-row justify-center items-center gap-2",
-              listName && listContent ? "bg-orange-500" : "bg-gray-100"
+              'w-full py-3 rounded-xl flex-row justify-center items-center gap-2',
+              listName && listContent ? 'bg-orange-500' : 'bg-gray-100'
             )}
           >
             <Plus size={18} color={listName && listContent ? '#ffffff' : '#9ca3af'} />
-            <Text className={clsx(
-              "font-bold",
-              listName && listContent ? "text-white" : "text-gray-400"
-            )}>
-              Add List
+            <Text className={clsx('font-bold', listName && listContent ? 'text-white' : 'text-gray-400')}>
+              {'Добавить список'}
             </Text>
           </TouchableOpacity>
         </View>
 
-        {/* Empty State */}
         <View className="mt-12 flex-col items-center justify-center">
           <View className="w-16 h-16 bg-gray-50 rounded-full items-center justify-center mb-4">
             <View className="w-8 h-8 items-center justify-center">
-              <Text className="text-gray-300 text-2xl">📋</Text>
+              <Text className="text-gray-300 text-2xl">+</Text>
             </View>
           </View>
-          <Text className="text-gray-400 font-medium mb-1">No added lists</Text>
+          <Text className="text-gray-400 font-medium mb-1">{'Списки пока не добавлены'}</Text>
           <Text className="text-xs text-gray-300 text-center">
-            Add URL or paste VLESS servers from clipboard
+            {'Добавьте URL или вставьте VLESS-серверы из буфера'}
           </Text>
         </View>
       </ScrollView>

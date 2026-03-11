@@ -1,0 +1,96 @@
+2026-03-10 03:33 MSK
+Task: Android VPN engine migration to xray-first with sing-box fallback.
+
+Status snapshot:
+- TypeScript check passed: `npm run lint`
+- Expo Android bundle/export passed: `npx expo export:embed --eager --platform android --dev false`
+- Android Kotlin compile passed: `./gradlew.bat :app:compileReleaseKotlin --no-daemon`
+- Full `assembleRelease` was intentionally stopped by user to avoid long waits.
+
+Confirmed current project state:
+- Android currently uses `libbox.aar` / sing-box only.
+- There is no existing Xray Android runtime wired into Gradle yet.
+- `src/services/vpnService.ts` currently generates a sing-box config and sends it to `VpnModule.connect(...)`.
+- `android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt` currently starts `libbox.CommandServer`.
+
+Confirmed from local xray-core source:
+- Local module exists at:
+  `C:\Users\Кирилл\go\pkg\mod\github.com\xtls\xray-core@v1.260123.1-0.20260206094241-12ee51e4bb1d`
+- Xray has Android TUN support in:
+  `proxy/tun/tun_android.go`
+- Android integration model is:
+  1. App creates TUN via `VpnService`
+  2. App passes fd via env var `xray.tun.fd` / `XRAY_TUN_FD`
+  3. Xray reads that fd and runs TUN inbound
+- Xray JSON loader and runtime API are available through:
+  - `core.StartInstance("json", ...)`
+  - `infra/conf/serial`
+  - `_ "github.com/xtls/xray-core/main/distro/all"`
+- Stats can be read from Xray `stats.Manager`.
+
+Architecture decision in progress:
+- Primary engine on Android: Xray
+- Fallback engine on Android: existing sing-box/libbox path
+- Native payload from JS will contain both Xray config and sing-box config
+- `RouteVpnService` will try Xray first, then fallback to sing-box on startup failure / early tunnel failure
+
+Important risk noted:
+- Xray TUN can loop on its own uplink traffic if routed back into VPN.
+- Safe first implementation path: exclude the app package from VPN route while Xray is active, so Xray uplink sockets bypass the tunnel.
+
+Next implementation steps:
+1. Create Go package `xray-mobile` exposing start/stop/isRunning/getStats/getLastError.
+2. Build Android `.aar` with `gomobile bind` and fixed Java package.
+3. Wire Gradle dependency for the generated AAR.
+4. Update TS native connect payload.
+5. Refactor `RouteVpnService.kt` to `xray-first -> sing-box fallback`.
+
+Progress update:
+- Added Go module:
+  - `android/xraymobile/go.mod`
+  - `android/xraymobile/xraymobile.go`
+- Added build script:
+  - `scripts/build-xray-mobile-aar.ps1`
+- The Go bridge compiles successfully with:
+  - `go mod tidy`
+  - `go build .`
+- Bridge responsibilities currently implemented:
+  - start Xray with JSON config
+  - set `xray.tun.fd` / `XRAY_TUN_FD`
+  - stop Xray instance
+  - read running state
+  - collect outbound/inbound traffic counters
+  - capture recent log/debug/error lines through Xray log handler
+
+Build-chain progress:
+- `golang.org/x/mobile/bind` was added to the local Go module because gomobile requires it during wrapper generation.
+- `gomobile bind` works on this machine with:
+  - `ANDROID_HOME=D:\Android\Sdk`
+  - `ANDROID_NDK_HOME=D:\Android\Sdk\ndk\27.1.12297006`
+  - `-androidapi 24`
+- Generated Android runtime artifact:
+  - `android/app/libs/xraymobile.aar`
+
+Observed environment issue:
+- `D:\Android\Sdk\ndk\27.0.12077973` is incomplete on this machine (missing `meta/platforms.json`).
+- Working NDK is `D:\Android\Sdk\ndk\27.1.12297006`.
+
+Next:
+- Wire `xraymobile.aar` into Gradle.
+- Refactor Android native service for primary Xray startup with sing-box fallback.
+
+COMPLETED:
+- xraymobile.aar already wired in Gradle (implementation files('libs/xraymobile.aar'))
+- RouteVpnService.kt refactored to xray-first with sing-box fallback:
+  - Parses payload with xrayConfig and singBoxConfig from TS
+  - startXrayWithFallback() tries Xray first, falls back to sing-box on failure
+  - startXray() creates TUN via Builder, passes fd to xrayEngine.start()
+  - stopCurrentService() properly stops xrayEngine before stopping commandServer
+  - getTrafficStats() reads stats from xrayEngine when active
+  - Fixed garbled Russian text in notifications
+- TS payload already correctly sends both configs (primaryEngine: 'xray', fallbackEngine: 'sing-box')
+
+Potential issues to check when building:
+- XrayMobile API: may need to verify method names (newEngine, start, stop, isRunning, getStatsJSON, getLastDebug)
+- TUN config: openTunForXray() uses simplified config (172.19.0.1/30, 0.0.0.0/0) - may need to match sing-box routing
+- NDK version in gradle.properties may need to point to 27.1.12297006 instead of 27.0.12077973

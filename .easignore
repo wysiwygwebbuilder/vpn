@@ -1,18 +1,41 @@
-# Build artifacts
-android/app/build/
-android/.gradle/
-android/app/src/main/assets/index.android.bundle
+# Dependencies
+node_modules/
 
-# Logs
+# Expo / EAS
+.expo/
+dist/
+web-build/
+
+# Local env
+.env
+.env.local
+.env*.local
+
+# IDE / local tooling
+.idea/
+.vscode/
+.kiro/
+.codex_tmp/
+
+# Native build caches
+.gradle-local/
+.gradle/
+.kotlin/
+android/.gradle/
+android/.kotlin/
+android/build/
+android/app/build/
+android/app/src/main/assets/index.android.bundle
+ios/build/
+
+# Logs / temp
 *.log
+npm-tmp/
 android/hs_err_pid*.log
 android/replay_pid*.log
+hs_err_pid*.log
+replay_pid*.log
 
-# IDE
-.idea/
-
-# Batch scripts
+# Misc local files
 *.bat
-
-# Images (already in assets)
 images/

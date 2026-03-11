@@ -1,10 +1,10 @@
 {
   "expo": {
     "name": "Феникс VPN",
-    "slug": "phoenix-vpn",
+    "slug": "van21",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./icon.png",
     "userInterfaceStyle": "light",
     "scheme": "phoenix-vpn",
     "splash": {
@@ -18,10 +18,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#f97316",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./icon.png",
+        "backgroundColor": "#160a11"
       },
       "predictiveBackGestureEnabled": true,
       "package": "com.phoenix.vpn"
@@ -36,8 +34,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "6b94faab-1690-494b-b0ec-b93da59d571e"
+        "projectId": "3b6c3476-5d81-4e75-8203-efd3a404cbab"
       }
-    }
+    },
+    "owner": "web-impuls3"
   }
 }
