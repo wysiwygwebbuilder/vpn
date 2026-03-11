@@ -7,4 +7,3 @@ jest.config.js
 jest.setup.js
 .git
 .github
-node_modules
