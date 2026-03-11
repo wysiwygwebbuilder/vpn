@@ -41,5 +41,9 @@
     "patch-package": "^8.0.1",
     "typescript": "~5.9.2"
   },
+  "resolutions": {
+    "react-native-reanimated": "npm:react-native-reanimated-noop@1.0.0",
+    "react-native-worklets": "npm:react-native-reanimated-noop@1.0.0"
+  },
   "private": true
 }
