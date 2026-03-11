@@ -94,3 +94,11 @@ Potential issues to check when building:
 - XrayMobile API: may need to verify method names (newEngine, start, stop, isRunning, getStatsJSON, getLastDebug)
 - TUN config: openTunForXray() uses simplified config (172.19.0.1/30, 0.0.0.0/0) - may need to match sing-box routing
 - NDK version in gradle.properties may need to point to 27.1.12297006 instead of 27.0.12077973
+
+
+eas build --platform android --profile preview
+
+eas build --platform android --profile preview --non-interactive
+
+
+cd android ; ./gradlew assembleRelease
