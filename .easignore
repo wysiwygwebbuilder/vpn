@@ -1,50 +1,10 @@
-# Dependencies
-node_modules/
-
-# Expo / EAS
-.expo/
-dist/
-web-build/
-
-# Local env
-.env
-.env.local
-.env*.local
-
-# IDE / local tooling
-.idea/
-.vscode/
-.kiro/
-.codex_tmp/
-
-# Native build caches
-.gradle-local/
-.gradle/
-.kotlin/
-android/.gradle/
-android/.kotlin/
-android/build/
-android/app/build/
-android/app/src/main/assets/index.android.bundle
-ios/build/
-
-# Logs / temp
-*.log
-npm-tmp/
-android/hs_err_pid*.log
-android/replay_pid*.log
-hs_err_pid*.log
-replay_pid*.log
-
-# Misc local files
-*.bat
-images/
-
-# Tests
-__tests__/
-jest.config.js
-jest.setup.js
+__tests__
 *.test.ts
 *.test.tsx
-*.spec.ts
-*.spec.tsx
+*.test.js
+*.test.jsx
+jest.config.js
+jest.setup.js
+.git
+.github
+node_modules

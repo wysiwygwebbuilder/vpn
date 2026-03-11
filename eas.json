@@ -14,7 +14,8 @@
     "preview": {
       "android": {
         "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease"
+        "gradleCommand": ":app:assembleRelease",
+        "withoutCredentials": true
       },
       "distribution": "internal",
       "env": {
