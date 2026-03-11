@@ -7,12 +7,16 @@ module.exports = function (api) {
         'babel-preset-expo',
         {
           jsxImportSource: 'nativewind',
-          lazyImports: true,
-          disableImportExportTransform: false,
+          unstable_transformProfile: 'hermes-stable',
         },
       ],
       'nativewind/babel',
     ],
     plugins: [],
+    env: {
+      production: {
+        plugins: ['transform-remove-console'],
+      },
+    },
   };
 };
