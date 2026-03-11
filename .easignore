@@ -39,3 +39,12 @@ replay_pid*.log
 # Misc local files
 *.bat
 images/
+
+# Tests
+__tests__/
+jest.config.js
+jest.setup.js
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
