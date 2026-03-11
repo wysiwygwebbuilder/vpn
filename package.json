@@ -7,8 +7,7 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "lint": "tsc --noEmit",
-    "postinstall": "node scripts/patch-expo-worklets.js"
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@expo/metro-runtime": "~55.0.6",
