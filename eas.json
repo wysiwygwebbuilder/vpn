@@ -1,14 +1,20 @@
 {
   "cli": {
-    "version": ">= 0.43.0",
-    "appVersionSource": "remote"
+    "version": ">= 12.0.0",
+    "appVersionSource": "remote",
+    "requireCommit": false
   },
   "build": {
     "development": {
       "developmentClient": true,
       "distribution": "internal",
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "node": "20.19.0",
+      "env": {
+        "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
       }
     },
     "preview": {
@@ -18,6 +24,7 @@
         "withoutCredentials": true
       },
       "distribution": "internal",
+      "node": "20.19.0",
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
       }
@@ -27,9 +34,11 @@
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease"
       },
+      "node": "20.19.0",
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
-      }
+      },
+      "autoIncrement": true
     }
   },
   "submit": {

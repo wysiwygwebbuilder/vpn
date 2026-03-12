@@ -1,6 +1,6 @@
 module.exports = function (api) {
   api.cache(true);
-  
+
   return {
     presets: [
       [
@@ -12,7 +12,9 @@ module.exports = function (api) {
       ],
       'nativewind/babel',
     ],
-    plugins: [],
+    plugins: [
+      'react-native-reanimated/plugin',
+    ],
     env: {
       production: {
         plugins: ['transform-remove-console'],
