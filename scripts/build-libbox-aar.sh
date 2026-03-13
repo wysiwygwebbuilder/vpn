@@ -18,7 +18,7 @@ mkdir -p "$TEMP_DIR"
 cd "$TEMP_DIR"
 
 echo "Cloning sing-box repository..."
-git clone --depth 1 --branch main https://github.com/SagerNet/sing-box.git .
+git clone --depth 1 https://github.com/SagerNet/sing-box.git .
 
 echo "Building libbox.aar with gomobile..."
 

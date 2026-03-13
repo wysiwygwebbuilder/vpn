@@ -31,7 +31,7 @@ rm -rf "$TEMP_DIR"
 mkdir -p "$TEMP_DIR"
 
 cd "$TEMP_DIR"
-git clone --depth 1 --branch main https://github.com/SagerNet/sing-box.git .
+git clone --depth 1 https://github.com/SagerNet/sing-box.git .
 go mod download
 
 cd experimental/libbox

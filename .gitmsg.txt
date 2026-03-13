@@ -1,1 +1,1 @@
-\"Fix Kotlin errors - disable libbox temporarily\"  
+\"Build libbox.aar in EAS cloud + restore full VPN\"  
