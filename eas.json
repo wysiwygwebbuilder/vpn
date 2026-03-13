@@ -11,7 +11,8 @@
       "android": {
         "buildType": "apk",
         "gradleCommand": ":app:assembleDebug",
-        "image": "latest"
+        "image": "latest",
+        "prebuildCommand": "./eas-hooks/eas-build-pre-install.sh"
       },
       "ios": {
         "image": "latest"
@@ -20,9 +21,6 @@
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
         "NODE_OPTIONS": "--max-old-space-size=4096"
-      },
-      "hooks": {
-        "preInstall": "./eas-hooks/eas-build-pre-install.sh"
       }
     },
     "preview": {
@@ -30,7 +28,8 @@
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease",
         "withoutCredentials": true,
-        "image": "latest"
+        "image": "latest",
+        "prebuildCommand": "./eas-hooks/eas-build-pre-install.sh"
       },
       "ios": {
         "image": "latest"
@@ -40,16 +39,14 @@
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
         "NODE_OPTIONS": "--max-old-space-size=4096"
-      },
-      "hooks": {
-        "preInstall": "./eas-hooks/eas-build-pre-install.sh"
       }
     },
     "production": {
       "android": {
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease",
-        "image": "latest"
+        "image": "latest",
+        "prebuildCommand": "./eas-hooks/eas-build-pre-install.sh"
       },
       "ios": {
         "image": "latest"
@@ -59,10 +56,7 @@
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
         "NODE_OPTIONS": "--max-old-space-size=4096"
       },
-      "autoIncrement": true,
-      "hooks": {
-        "preInstall": "./eas-hooks/eas-build-pre-install.sh"
-      }
+      "autoIncrement": true
     }
   },
   "submit": {
