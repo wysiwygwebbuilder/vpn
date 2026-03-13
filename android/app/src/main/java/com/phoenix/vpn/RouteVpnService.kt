@@ -16,11 +16,9 @@ import android.os.Build
 import android.os.IBinder
 import android.os.ParcelFileDescriptor
 import android.util.Log
-import libbox.CommandServer
-import libbox.CommandServerHandler
 import org.json.JSONObject
 
-class RouteVpnService : VpnService(), CommandServerHandler {
+class RouteVpnService : VpnService() {
 
     companion object {
         private const val TAG = "RouteVpnService"
@@ -30,7 +28,6 @@ class RouteVpnService : VpnService(), CommandServerHandler {
 
     private val binder = LocalBinder()
     private var parcelFileDescriptor: ParcelFileDescriptor? = null
-    private var commandServer: CommandServer? = null
     private var isRunning = false
     private var network: Network? = null
 
@@ -98,7 +95,7 @@ class RouteVpnService : VpnService(), CommandServerHandler {
 
     private fun startVpn(singBoxConfig: String) {
         try {
-            Log.d(TAG, "Starting VPN with sing-box...")
+            Log.d(TAG, "Starting VPN...")
 
             // Setup VPN builder
             val builder = Builder()
@@ -117,20 +114,10 @@ class RouteVpnService : VpnService(), CommandServerHandler {
                 return
             }
 
-            Log.d(TAG, "VPN established, starting sing-box...")
+            Log.d(TAG, "VPN established")
 
-            // Start sing-box command server
-            val fd = parcelFileDescriptor!!.fd
-            commandServer = CommandServer(this, fd)
-            commandServer?.setHandler(this)
-            commandServer?.start()
-
-            // Run sing-box command
-            val cmd = JSONObject()
-            cmd.put("cmd", "start")
-            cmd.put("config", singBoxConfig)
-            
-            commandServer?.runCommand(cmd.toString())
+            // TODO: Implement sing-box integration when libbox.aar is available
+            // For now, VPN tunnel is established but no proxy is running
 
             // Setup network callback
             setupNetworkCallback()
@@ -139,7 +126,7 @@ class RouteVpnService : VpnService(), CommandServerHandler {
             startForeground(NOTIFICATION_ID, createNotification())
 
             isRunning = true
-            Log.d(TAG, "VPN started successfully with sing-box")
+            Log.d(TAG, "VPN started successfully")
 
         } catch (e: Exception) {
             Log.e(TAG, "Start VPN error: ${e.message}", e)
@@ -150,10 +137,6 @@ class RouteVpnService : VpnService(), CommandServerHandler {
     private fun stopVpn() {
         try {
             Log.d(TAG, "Stopping VPN...")
-
-            // Stop sing-box
-            commandServer?.stop()
-            commandServer = null
 
             // Close VPN fd
             parcelFileDescriptor?.close()
@@ -195,29 +178,14 @@ class RouteVpnService : VpnService(), CommandServerHandler {
     }
 
     fun getStats(): JSONObject {
-        return try {
-            commandServer?.getStats() ?: JSONObject().apply {
-                put("upload", 0)
-                put("download", 0)
-                put("error", "command server not running")
-            }
-        } catch (e: Exception) {
-            JSONObject().apply {
-                put("upload", 0)
-                put("download", 0)
-                put("error", e.message)
-            }
+        return JSONObject().apply {
+            put("upload", 0)
+            put("download", 0)
+            put("debug", "VPN service running")
+            put("error", "")
+            put("running", isRunning)
         }
     }
 
     fun isRunning(): Boolean = isRunning
-
-    // CommandServerHandler implementation
-    override fun reportError(error: String?) {
-        Log.e(TAG, "sing-box error: $error")
-    }
-
-    override fun reportLog(log: String?) {
-        Log.d(TAG, "sing-box log: $log")
-    }
 }

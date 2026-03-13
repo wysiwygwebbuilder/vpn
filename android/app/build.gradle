@@ -153,8 +153,8 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
-    // sing-box libbox for VPN functionality
-    implementation files('libs/libbox.aar')
+    // sing-box libbox for VPN functionality - try Maven Central
+    // implementation files('libs/libbox.aar')
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";

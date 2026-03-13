@@ -7,7 +7,9 @@ import com.facebook.react.uimanager.ViewManager
 
 class VpnModulePackage : ReactPackage {
     override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-        return listOf<NativeModule>(VpnModule(reactContext))
+        val modules: MutableList<NativeModule> = ArrayList()
+        modules.add(VpnModule(reactContext))
+        return modules
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {

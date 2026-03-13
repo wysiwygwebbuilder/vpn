@@ -10,7 +10,7 @@ import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.modules.core.DeviceEventManagerModule
 
 @ReactModule(name = VpnModule.NAME)
-class VpnModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+class VpnModule(private val reactContext: ReactApplicationContext) : BaseJavaModule(reactContext) {
 
     companion object {
         const val NAME = "VpnModule"
@@ -18,11 +18,24 @@ class VpnModule(private val reactContext: ReactApplicationContext) : ReactContex
         private var pendingIntent: Intent? = null
         private var pendingConfig: String? = null
         private var pendingPromise: Promise? = null
+        private var instance: VpnModule? = null
+        
+        fun getInstance(): VpnModule? = instance
+        
+        fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent?, activity: Activity) {
+            if (requestCode == VPN_PERMISSION_REQUEST_CODE) {
+                instance?.onActivityResult(requestCode, resultCode, data)
+            }
+        }
     }
 
     private var isConnected = false
     private var lastDebug = ""
     private var lastError = ""
+
+    init {
+        instance = this
+    }
 
     override fun getName(): String = NAME
 
@@ -209,21 +222,5 @@ class VpnModule(private val reactContext: ReactApplicationContext) : ReactContex
             pendingConfig = null
             pendingPromise = null
         }
-    }
-
-    companion object {
-        private var instance: VpnModule? = null
-        
-        fun getInstance(): VpnModule? = instance
-        
-        fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent?, activity: Activity) {
-            if (requestCode == VPN_PERMISSION_REQUEST_CODE) {
-                instance?.onActivityResult(requestCode, resultCode, data)
-            }
-        }
-    }
-
-    init {
-        instance = this
     }
 }

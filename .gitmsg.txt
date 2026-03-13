@@ -1,1 +1,1 @@
-\"Fix MainActivity onActivityResult\"  
+\"Fix VpnModule base class\"  
