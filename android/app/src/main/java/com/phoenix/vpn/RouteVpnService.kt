@@ -4,23 +4,19 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.app.Service
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.Network
-import android.net.NetworkCapabilities
-import android.net.NetworkRequest
 import android.net.VpnService
 import android.os.Binder
 import android.os.Build
 import android.os.IBinder
 import android.os.ParcelFileDescriptor
 import android.util.Log
-import libbox.CommandServer
-import libbox.CommandServerHandler
+import libv2ray.Libv2ray
+import libv2ray.V2RayPoint
+import libv2ray.V2RayVPNServiceSupportsSet
 import org.json.JSONObject
 
-class RouteVpnService : VpnService(), CommandServerHandler {
+class RouteVpnService : VpnService(), V2RayVPNServiceSupportsSet {
 
     companion object {
         private const val TAG = "RouteVpnService"
@@ -30,9 +26,8 @@ class RouteVpnService : VpnService(), CommandServerHandler {
 
     private val binder = LocalBinder()
     private var parcelFileDescriptor: ParcelFileDescriptor? = null
-    private var commandServer: CommandServer? = null
+    private var v2rayPoint: V2RayPoint? = null
     private var isRunning = false
-    private var network: Network? = null
 
     inner class LocalBinder : Binder() {
         fun getService(): RouteVpnService = this@RouteVpnService
@@ -41,6 +36,7 @@ class RouteVpnService : VpnService(), CommandServerHandler {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
+        v2rayPoint = Libv2ray.newV2RayPoint(this, false)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -54,9 +50,7 @@ class RouteVpnService : VpnService(), CommandServerHandler {
         return START_STICKY
     }
 
-    override fun onBind(intent: Intent?): IBinder {
-        return binder
-    }
+    override fun onBind(intent: Intent?): IBinder = binder
 
     override fun onDestroy() {
         super.onDestroy()
@@ -73,16 +67,13 @@ class RouteVpnService : VpnService(), CommandServerHandler {
                 description = "VPN connection status"
                 setShowBadge(false)
             }
-
-            val notificationManager = getSystemService(NotificationManager::class.java)
-            notificationManager.createNotificationChannel(channel)
+            getSystemService(NotificationManager::class.java)?.createNotificationChannel(channel)
         }
     }
 
     private fun createNotification(): Notification {
         val pendingIntent = PendingIntent.getActivity(
-            this,
-            0,
+            this, 0,
             Intent(this, MainActivity::class.java),
             PendingIntent.FLAG_IMMUTABLE
         )
@@ -96,50 +87,33 @@ class RouteVpnService : VpnService(), CommandServerHandler {
             .build()
     }
 
-    private fun startVpn(singBoxConfig: String) {
+    private fun startVpn(xrayConfig: String) {
         try {
-            Log.d(TAG, "Starting VPN with sing-box...")
+            Log.d(TAG, "Starting VPN with xray...")
 
-            // Setup VPN builder
+            v2rayPoint?.configureFileContent = xrayConfig
+            v2rayPoint?.domainName = ""
+
             val builder = Builder()
+                .setSession("Феникс VPN")
+                .setMtu(1500)
                 .addAddress("10.0.0.2", 30)
                 .addRoute("0.0.0.0", 0)
                 .addDnsServer("8.8.8.8")
                 .addDnsServer("1.1.1.1")
-                .setSession("Феникс VPN")
-                .setMtu(1500)
 
-            // Establish VPN connection
             parcelFileDescriptor = builder.establish()
             if (parcelFileDescriptor == null) {
-                Log.e(TAG, "Failed to establish VPN connection")
-                stopVpn()
+                Log.e(TAG, "Failed to establish VPN")
                 return
             }
 
-            Log.d(TAG, "VPN established, starting sing-box...")
+            v2rayPoint?.vpnSupportSet = this
+            v2rayPoint?.startCore()
 
-            // Start sing-box command server
-            val fd = parcelFileDescriptor!!.fd
-            commandServer = CommandServer(this, fd)
-            commandServer?.setHandler(this)
-            commandServer?.start()
-
-            // Run sing-box command
-            val cmd = JSONObject()
-            cmd.put("cmd", "start")
-            cmd.put("config", singBoxConfig)
-
-            commandServer?.runCommand(cmd.toString())
-
-            // Setup network callback
-            setupNetworkCallback()
-
-            // Start foreground service
             startForeground(NOTIFICATION_ID, createNotification())
-
             isRunning = true
-            Log.d(TAG, "VPN started successfully with sing-box")
+            Log.d(TAG, "VPN started with xray")
 
         } catch (e: Exception) {
             Log.e(TAG, "Start VPN error: ${e.message}", e)
@@ -151,73 +125,51 @@ class RouteVpnService : VpnService(), CommandServerHandler {
         try {
             Log.d(TAG, "Stopping VPN...")
 
-            // Stop sing-box
-            commandServer?.stop()
-            commandServer = null
-
-            // Close VPN fd
+            v2rayPoint?.stopCore()
             parcelFileDescriptor?.close()
             parcelFileDescriptor = null
 
-            // Remove network callback
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                val connectivityManager = getSystemService(ConnectivityManager::class.java)
-                network?.let { connectivityManager.unbindNetworkFromProcess(it) }
-            }
-
-            // Stop foreground service
             stopForeground(STOP_FOREGROUND_REMOVE)
             stopSelf()
 
             isRunning = false
             Log.d(TAG, "VPN stopped")
-
         } catch (e: Exception) {
             Log.e(TAG, "Stop VPN error: ${e.message}", e)
         }
     }
 
-    private fun setupNetworkCallback() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            val connectivityManager = getSystemService(ConnectivityManager::class.java)
-            val networkRequest = NetworkRequest.Builder()
-                .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                .build()
-
-            connectivityManager.requestNetwork(networkRequest, object : ConnectivityManager.NetworkCallback() {
-                override fun onAvailable(network: Network) {
-                    this@RouteVpnService.network = network
-                    connectivityManager.bindNetworkToProcess(network)
-                    Log.d(TAG, "Network bound to VPN")
-                }
-            })
-        }
-    }
-
     fun getStats(): JSONObject {
         return try {
-            commandServer?.getStats() ?: JSONObject().apply {
-                put("upload", 0)
-                put("download", 0)
-                put("error", "command server not running")
+            val upload = v2rayPoint?.queryStats("", "uplink") ?: 0L
+            val download = v2rayPoint?.queryStats("", "downlink") ?: 0L
+            JSONObject().apply {
+                put("upload", upload)
+                put("download", download)
+                put("running", isRunning)
             }
         } catch (e: Exception) {
             JSONObject().apply {
                 put("upload", 0)
                 put("download", 0)
-                put("error", e.message)
+                put("running", isRunning)
             }
         }
     }
 
     fun isRunning(): Boolean = isRunning
 
-    // CommandServerHandler implementation
-    override fun reportError(error: String?) {
-        Log.e(TAG, "sing-box error: $error")
+    override fun onEmitStatus(p0: String?) {
+        Log.d(TAG, "xray status: $p0")
     }
 
-    override fun reportLog(log: String?) {
-        Log.d(TAG, "sing-box log: $log")
+    override fun protect(fd: Long): Boolean {
+        return protect(fd.toInt())
     }
+
+    override fun getService(): VpnService = this
+
+    override fun startService() {}
+
+    override fun stopService() {}
 }
