@@ -20,6 +20,9 @@
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
         "NODE_OPTIONS": "--max-old-space-size=4096"
+      },
+      "hooks": {
+        "preInstall": "./eas-hooks/eas-build-pre-install.sh"
       }
     },
     "preview": {
@@ -37,6 +40,9 @@
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
         "NODE_OPTIONS": "--max-old-space-size=4096"
+      },
+      "hooks": {
+        "preInstall": "./eas-hooks/eas-build-pre-install.sh"
       }
     },
     "production": {
@@ -53,7 +59,10 @@
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
         "NODE_OPTIONS": "--max-old-space-size=4096"
       },
-      "autoIncrement": true
+      "autoIncrement": true,
+      "hooks": {
+        "preInstall": "./eas-hooks/eas-build-pre-install.sh"
+      }
     }
   },
   "submit": {
