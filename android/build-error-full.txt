@@ -1,0 +1,891 @@
+Starting a Gradle Daemon, 3 busy and 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :expo
+
+Using expo modules
+  - [32mexpo-asset[0m (11.0.5)
+  - [32mexpo-clipboard[0m (7.0.1)
+  - [32mexpo-constants[0m (17.0.8)
+  - [32mexpo-file-system[0m (18.0.12)
+  - [32mexpo-font[0m (13.0.4)
+  - [32mexpo-keep-awake[0m (14.0.3)
+  - [32mexpo-linking[0m (7.0.5)
+  - [32mexpo-modules-core[0m (2.2.3)
+  - [32mexpo-system-ui[0m (4.0.9)
+
+
+> Configure project :react-native-reanimated
+Android gradle plugin: 8.6.0
+Gradle: 8.10.2
+
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:generateAutolinkingPackageList UP-TO-DATE
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseBuildConfig
+> Task :expo:generateExpoModulesPackageListTask UP-TO-DATE
+> Task :expo:preBuild UP-TO-DATE
+> Task :expo:preReleaseBuild UP-TO-DATE
+> Task :expo-asset:preBuild UP-TO-DATE
+> Task :expo-asset:preReleaseBuild UP-TO-DATE
+> Task :expo-clipboard:preBuild UP-TO-DATE
+> Task :expo-clipboard:preReleaseBuild UP-TO-DATE
+> Task :expo-clipboard:writeReleaseAarMetadata
+> Task :expo:writeReleaseAarMetadata
+> Task :expo-asset:writeReleaseAarMetadata
+
+> Task :expo-constants:createExpoConfig
+The NODE_ENV environment variable is required but was not specified. Ensure the project is bundled with Expo CLI or NODE_ENV is set.
+Proceeding without mode-specific .env
+env: load .env.local
+env: export NODE_ENV EXPO_NO_TELEMETRY EXPO_NO_DEPLOY
+
+> Task :expo-constants:preBuild
+> Task :expo-constants:preReleaseBuild
+> Task :expo-file-system:preBuild UP-TO-DATE
+> Task :expo-file-system:preReleaseBuild UP-TO-DATE
+> Task :expo-constants:writeReleaseAarMetadata
+> Task :expo-font:preBuild UP-TO-DATE
+> Task :expo-font:preReleaseBuild UP-TO-DATE
+> Task :expo-file-system:writeReleaseAarMetadata
+> Task :expo-keep-awake:preBuild UP-TO-DATE
+> Task :expo-keep-awake:preReleaseBuild UP-TO-DATE
+> Task :expo-linking:preBuild UP-TO-DATE
+> Task :expo-linking:preReleaseBuild UP-TO-DATE
+> Task :expo-modules-core:preBuild UP-TO-DATE
+> Task :expo-modules-core:preReleaseBuild UP-TO-DATE
+> Task :expo-font:writeReleaseAarMetadata
+> Task :expo-system-ui:preBuild UP-TO-DATE
+> Task :expo-system-ui:preReleaseBuild UP-TO-DATE
+> Task :expo-keep-awake:writeReleaseAarMetadata
+> Task :react-native-async-storage_async-storage:preBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preReleaseBuild UP-TO-DATE
+> Task :expo-linking:writeReleaseAarMetadata
+> Task :expo-modules-core:writeReleaseAarMetadata
+> Task :expo-system-ui:writeReleaseAarMetadata
+> Task :react-native-reanimated:assertLatestReactNativeWithNewArchitectureTask SKIPPED
+> Task :react-native-reanimated:assertMinimalReactNativeVersionTask SKIPPED
+> Task :react-native-async-storage_async-storage:writeReleaseAarMetadata
+> Task :react-native-reanimated:prepareReanimatedHeadersForPrefabs UP-TO-DATE
+> Task :react-native-reanimated:prepareWorkletsHeadersForPrefabs UP-TO-DATE
+> Task :react-native-reanimated:preBuild UP-TO-DATE
+> Task :react-native-reanimated:preReleaseBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preReleaseBuild UP-TO-DATE
+> Task :react-native-reanimated:writeReleaseAarMetadata
+> Task :react-native-screens:preBuild UP-TO-DATE
+> Task :react-native-screens:preReleaseBuild UP-TO-DATE
+> Task :react-native-safe-area-context:writeReleaseAarMetadata
+> Task :react-native-svg:preBuild UP-TO-DATE
+> Task :react-native-svg:preReleaseBuild UP-TO-DATE
+> Task :react-native-screens:writeReleaseAarMetadata
+> Task :react-native-svg:writeReleaseAarMetadata
+
+> Task :app:createBundleReleaseJsAndAssets
+env: load .env.local
+env: export EXPO_NO_TELEMETRY EXPO_NO_DEPLOY
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+tailwindcss(android) rebuilding... done
+Android Bundled 147260ms node_modules\expo-router\entry.js (2824 modules)
+Writing bundle output to: android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle
+Writing sourcemap output to: android\app\build\intermediates\sourcemaps\react\release\index.android.bundle.packager.map
+Copying 25 asset files
+Done writing bundle output
+Done writing sourcemap output
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:2373:20: warning: the variable "Promise" was not declared in function "promiseMethodWrapper"
+        return new Promise((resolve, reject) => {
+                   ^~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:2595:23: warning: the variable "DebuggerInternal" was not declared in function "__shouldPauseOnThrow"
+        return typeof DebuggerInternal !== 'undefined' && DebuggerInternal.sh...
+                      ^~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:3912:5: warning: the variable "setImmediate" was not declared in function "handleResolved"
+    setImmediate(function () {
+    ^~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:5260:94: warning: the variable "setTimeout" was not declared in anonymous arrow function " 237#"
+...).then(callback).catch(error => setTimeout(() => {
+                                   ^~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7534:5: warning: the variable "Headers" was not declared in anonymous function " 310#"
+    Headers,
+    ^~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7535:5: warning: the variable "Request" was not declared in anonymous function " 310#"
+    Request,
+    ^~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7536:5: warning: the variable "Response" was not declared in anonymous function " 310#"
+    Response
+    ^~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7693:24: warning: the variable "FileReader" was not declared in function "readBlobAsArrayBuffer"
+      var reader = new FileReader();
+                       ^~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7744:36: warning: the variable "Blob" was not declared in anonymous function " 321#"
+        } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+                                   ^~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7746:40: warning: the variable "FormData" was not declared in anonymous function " 321#"
+        } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+                                       ^~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7748:44: warning: the variable "URLSearchParams" was not declared in anonymous function " 321#"
+...e if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body...
+                                 ^~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7867:26: warning: the variable "AbortController" was not declared in anonymous function " 327#"
+          var ctrl = new AbortController();
+                         ^~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:8001:23: warning: the variable "XMLHttpRequest" was not declared in anonymous function " 331#"
+        var xhr = new XMLHttpRequest();
+                      ^~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:7546:71: warning: the variable "self" was not declared in anonymous function " 313#"
+...undefined' && globalThis || typeof self !== 'undefined' && self ||
+                                      ^~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:17097:31: warning: the variable "nativeFabricUIManager" was not declared in anonymous function " 644#"
+  var _nativeFabricUIManage = nativeFabricUIManager,
+                              ^~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:17125:21: warning: the variable "clearTimeout" was not declared in anonymous function " 644#"
+    cancelTimeout = clearTimeout;
+                    ^~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:17138:51: warning: the variable "RN$enableMicrotasksInReact" was not declared in anonymous function " 644#"
+... "undefined" !== typeof RN$enableMicrotasksInReact && !!RN$enableMicrotask...
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:17139:47: warning: the variable "queueMicrotask" was not declared in anonymous function " 644#"
+...otask = "function" === typeof queueMicrotask ? queueMicrotask : scheduleTi...
+                                 ^~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:21560:30: warning: the variable "__REACT_DEVTOOLS_GLOBAL_HOOK__" was not declared in anonymous function " 644#"
+  if ("undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__) {
+                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:21698:26: warning: the variable "navigator" was not declared in anonymous function " 677#"
+  "undefined" !== typeof navigator && undefined !== navigator.scheduling && u...
+                         ^~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:21808:37: warning: the variable "MessageChannel" was not declared in anonymous function " 677#"
+  };else if ("undefined" !== typeof MessageChannel) {
+                                    ^~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:21823:34: warning: the variable "nativeRuntimeScheduler" was not declared in anonymous function " 677#"
+... = "undefined" !== typeof nativeRuntimeScheduler ? nativeRuntimeScheduler....
+                             ^~~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:32743:34: warning: the variable "requestAnimationFrame" was not declared in function "start 9#"
+...    this._animationFrame = requestAnimationFrame(this.onUpdate.bind(this));
+                              ^~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:49292:11: warning: the variable "_WORKLET" was not declared in function "assertEasingIsWorklet"
+      if (_WORKLET) {
+          ^~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:51075:94: warning: the variable "location" was not declared in function "registerSensor 1#"
+...(0, _PlatformChecker.isWeb)() && location.protocol !== 'https:' ? ' Make s...
+                                    ^~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:51537:12: warning: the variable "__reanimatedLoggerConfig" was not declared in function "replaceLoggerImplementation"
+        ...__reanimatedLoggerConfig,
+           ^~~~~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:52138:26: warning: Direct call to eval(), but lexical scope is not supported.
+            workletFun = eval('(' + initData.code + '\n)');
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:52161:112: warning: the variable "_toString" was not declared in function "valueUnpacker"
+...recognized by value unpacker: "${_toString(objectToUnpack)}".`);
+                                    ^~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:69131:26: warning: the variable "structuredClone" was not declared in function "createAnimationWithInitialValues"
+    var animationStyle = structuredClone(_config.AnimationsData[animationName...
+                         ^~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:69451:5: warning: the variable "document" was not declared in function "configureWebLayoutAnimations"
+    document.getElementById(PREDEFINED_WEB_ANIMATIONS_ID) !== null) {
+    ^~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:69546:27: warning: the variable "HTMLElement" was not declared in function "findDescendantWithExitingAnimation"
+    if (!(node instanceof HTMLElement)) {
+                          ^~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:69572:24: warning: the variable "MutationObserver" was not declared in function "addHTMLMutationObserver"
+    var observer = new MutationObserver(mutationsList => {
+                       ^~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:69617:41: warning: the variable "getComputedStyle" was not declared in function "fixElementPosition"
+...entBorderTopValue = parseInt(getComputedStyle(parent).borderTopWidth);
+                                ^~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:73588:5: warning: the variable "jest" was not declared in arrow function "beforeTest"
+    jest.useFakeTimers();
+    ^~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:74164:26: warning: the variable "_getAnimationTimestamp" was not declared in function "computeEasingProgress"
+      var elapsedTime = (_getAnimationTimestamp() - startingTimestamp) / 1000;
+                         ^~~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:79005:16: warning: the variable "SharedArrayBuffer" was not declared in function "from 1#"
+    if (typeof SharedArrayBuffer !== 'undefined' && (isInstance(value, Shared...
+               ^~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:84293:26: warning: the variable "SuppressedError" was not declared in anonymous function " 2767#"
+    "function" == typeof SuppressedError && SuppressedError;
+                         ^~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:92127:16: warning: Direct call to eval(), but lexical scope is not supported.
+        return eval(body);
+               ^~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:103051:9: warning: the variable "REACT_NAVIGATION_DEVTOOLS" was not declared in anonymous arrow function " 3708#"
+        REACT_NAVIGATION_DEVTOOLS.set(refContainer.current, {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:108397:16: warning: the variable "requestIdleCallback" was not declared in anonymous arrow function " 3925#"
+      var id = requestIdleCallback(() => {
+               ^~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:108400:20: warning: the variable "cancelIdleCallback" was not declared in anonymous arrow function " 3927#"
+      return () => cancelIdleCallback(id);
+                   ^~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:111899:11: warning: the variable "cancelAnimationFrame" was not declared in function "cleanup 1#"
+          cancelAnimationFrame(this.splashScreenAnimationFrame);
+          ^~~~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:113079:16: warning: the variable "ReactNativeWebView" was not declared in function "emitDomEvent"
+    if (typeof ReactNativeWebView !== 'undefined') {
+               ^~~~~~~~~~~~~~~~~~
+android\app\build\generated\assets\createBundleReleaseJsAndAssets\index.android.bundle:224292:76: warning: the variable "Buffer" was not declared in function "convertValue"
+... 'function' ? new Blob([value]) : Buffer.from(value);
+                                     ^~~~~~
+
+> Task :app:checkReleaseAarMetadata
+> Task :app:generateReleaseResValues
+> Task :expo:generateReleaseResValues
+> Task :expo:generateReleaseResources
+> Task :expo:packageReleaseResources
+> Task :expo-asset:generateReleaseResValues
+> Task :expo-asset:generateReleaseResources
+> Task :expo-asset:packageReleaseResources
+> Task :expo-clipboard:generateReleaseResValues
+> Task :expo-clipboard:generateReleaseResources
+> Task :expo-clipboard:packageReleaseResources
+> Task :expo-constants:generateReleaseResValues
+> Task :expo-constants:generateReleaseResources
+> Task :expo-constants:packageReleaseResources
+> Task :expo-file-system:generateReleaseResValues
+> Task :expo-file-system:generateReleaseResources
+> Task :expo-file-system:packageReleaseResources
+> Task :expo-font:generateReleaseResValues
+> Task :expo-font:generateReleaseResources
+> Task :expo-font:packageReleaseResources
+> Task :expo-keep-awake:generateReleaseResValues
+> Task :expo-keep-awake:generateReleaseResources
+> Task :expo-keep-awake:packageReleaseResources
+> Task :expo-linking:generateReleaseResValues
+> Task :expo-linking:generateReleaseResources
+> Task :expo-linking:packageReleaseResources
+> Task :expo-modules-core:generateReleaseResValues
+> Task :expo-modules-core:generateReleaseResources
+> Task :expo-modules-core:packageReleaseResources
+> Task :expo-system-ui:generateReleaseResValues
+> Task :expo-system-ui:generateReleaseResources
+> Task :expo-system-ui:packageReleaseResources
+> Task :react-native-async-storage_async-storage:generateReleaseResValues
+> Task :react-native-async-storage_async-storage:generateReleaseResources
+> Task :react-native-async-storage_async-storage:packageReleaseResources
+> Task :react-native-reanimated:generateReleaseResValues
+> Task :react-native-reanimated:generateReleaseResources
+> Task :react-native-reanimated:packageReleaseResources
+> Task :react-native-safe-area-context:generateReleaseResValues
+> Task :react-native-safe-area-context:generateReleaseResources
+> Task :react-native-safe-area-context:packageReleaseResources
+> Task :react-native-screens:generateReleaseResValues
+> Task :react-native-screens:generateReleaseResources
+> Task :react-native-screens:packageReleaseResources
+> Task :react-native-svg:generateReleaseResValues
+> Task :react-native-svg:generateReleaseResources
+> Task :react-native-svg:packageReleaseResources
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :expo:extractDeepLinksRelease
+> Task :expo-asset:extractDeepLinksRelease
+> Task :app:parseReleaseLocalResources
+> Task :expo-clipboard:extractDeepLinksRelease
+> Task :expo:processReleaseManifest
+> Task :expo-constants:extractDeepLinksRelease
+> Task :expo-asset:processReleaseManifest
+> Task :expo-clipboard:processReleaseManifest
+> Task :expo-file-system:extractDeepLinksRelease
+> Task :expo-constants:processReleaseManifest
+> Task :app:mergeReleaseResources
+> Task :expo-font:extractDeepLinksRelease
+> Task :expo-keep-awake:extractDeepLinksRelease
+
+> Task :expo-file-system:processReleaseManifest
+D:\OSPanel\domains\proxi-mob.loc\node_modules\expo-file-system\android\src\main\AndroidManifest.xml:6:9-8:20 Warning:
+	provider#expo.modules.filesystem.FileSystemFileProvider@android:authorities was tagged at AndroidManifest.xml:6 to replace other declarations but no other declaration present
+
+> Task :expo-linking:extractDeepLinksRelease
+> Task :expo-modules-core:extractDeepLinksRelease
+> Task :expo-font:processReleaseManifest
+> Task :expo-system-ui:extractDeepLinksRelease
+> Task :expo-keep-awake:processReleaseManifest
+> Task :expo-linking:processReleaseManifest
+> Task :react-native-async-storage_async-storage:extractDeepLinksRelease
+
+> Task :expo-modules-core:processReleaseManifest
+D:\OSPanel\domains\proxi-mob.loc\node_modules\expo-modules-core\android\src\main\AndroidManifest.xml:8:9-11:45 Warning:
+	meta-data#com.facebook.soloader.enabled@android:value was tagged at AndroidManifest.xml:8 to replace other declarations but no other declaration present
+
+> Task :expo-system-ui:processReleaseManifest
+> Task :react-native-reanimated:extractDeepLinksRelease
+
+> Task :react-native-async-storage_async-storage:processReleaseManifest
+package="com.reactnativecommunity.asyncstorage" found in source AndroidManifest.xml: D:\OSPanel\domains\proxi-mob.loc\node_modules\@react-native-async-storage\async-storage\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.reactnativecommunity.asyncstorage" from the source AndroidManifest.xml: D:\OSPanel\domains\proxi-mob.loc\node_modules\@react-native-async-storage\async-storage\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-safe-area-context:extractDeepLinksRelease
+> Task :react-native-screens:extractDeepLinksRelease
+> Task :react-native-svg:extractDeepLinksRelease
+> Task :react-native-reanimated:processReleaseManifest
+
+> Task :react-native-safe-area-context:processReleaseManifest
+package="com.th3rdwave.safeareacontext" found in source AndroidManifest.xml: D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-safe-area-context\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.th3rdwave.safeareacontext" from the source AndroidManifest.xml: D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-safe-area-context\android\src\main\AndroidManifest.xml.
+
+> Task :expo:compileReleaseLibraryResources
+> Task :expo-asset:compileReleaseLibraryResources
+
+> Task :react-native-screens:processReleaseManifest
+package="com.swmansion.rnscreens" found in source AndroidManifest.xml: D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-screens\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.swmansion.rnscreens" from the source AndroidManifest.xml: D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-screens\android\src\main\AndroidManifest.xml.
+
+> Task :expo:parseReleaseLocalResources
+
+> Task :react-native-svg:processReleaseManifest
+package="com.horcrux.svg" found in source AndroidManifest.xml: D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-svg\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.horcrux.svg" from the source AndroidManifest.xml: D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-svg\android\src\main\AndroidManifest.xml.
+
+> Task :expo-asset:parseReleaseLocalResources
+> Task :expo:generateReleaseRFile
+
+> Task :app:processReleaseMainManifest
+D:\OSPanel\domains\proxi-mob.loc\android\app\src\main\AndroidManifest.xml Warning:
+	provider#expo.modules.filesystem.FileSystemFileProvider@android:authorities was tagged at AndroidManifest.xml:0 to replace other declarations but no other declaration present
+
+> Task :app:processReleaseManifest
+> Task :expo-clipboard:compileReleaseLibraryResources
+> Task :app:processReleaseManifestForPackage
+> Task :expo-constants:compileReleaseLibraryResources
+> Task :expo-file-system:compileReleaseLibraryResources
+> Task :expo-clipboard:parseReleaseLocalResources
+> Task :expo-constants:parseReleaseLocalResources
+> Task :expo-asset:generateReleaseRFile
+> Task :expo-font:compileReleaseLibraryResources
+> Task :expo-file-system:parseReleaseLocalResources
+> Task :expo-font:parseReleaseLocalResources
+> Task :expo-clipboard:generateReleaseRFile
+> Task :expo-keep-awake:compileReleaseLibraryResources
+> Task :expo-constants:generateReleaseRFile
+> Task :expo-linking:compileReleaseLibraryResources
+> Task :expo-file-system:generateReleaseRFile
+> Task :expo-modules-core:compileReleaseLibraryResources
+> Task :expo-keep-awake:parseReleaseLocalResources
+> Task :expo-linking:parseReleaseLocalResources
+> Task :expo-font:generateReleaseRFile
+> Task :expo-modules-core:parseReleaseLocalResources
+> Task :expo-system-ui:compileReleaseLibraryResources
+> Task :expo-keep-awake:generateReleaseRFile
+> Task :expo-linking:generateReleaseRFile
+> Task :react-native-async-storage_async-storage:compileReleaseLibraryResources
+> Task :react-native-reanimated:compileReleaseLibraryResources
+> Task :expo-system-ui:parseReleaseLocalResources
+> Task :react-native-reanimated:parseReleaseLocalResources
+> Task :expo-modules-core:generateReleaseRFile
+> Task :react-native-async-storage_async-storage:parseReleaseLocalResources
+> Task :react-native-safe-area-context:compileReleaseLibraryResources
+> Task :expo-system-ui:generateReleaseRFile
+> Task :react-native-safe-area-context:parseReleaseLocalResources
+> Task :react-native-async-storage_async-storage:generateReleaseRFile
+> Task :react-native-reanimated:generateReleaseRFile
+> Task :react-native-svg:compileReleaseLibraryResources
+> Task :react-native-screens:compileReleaseLibraryResources
+> Task :expo:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo:generateReleaseBuildConfig
+> Task :expo-asset:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-svg:parseReleaseLocalResources
+> Task :react-native-screens:parseReleaseLocalResources
+> Task :expo-asset:generateReleaseBuildConfig
+> Task :react-native-safe-area-context:generateReleaseRFile
+> Task :expo-modules-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-modules-core:generateReleaseBuildConfig
+> Task :react-native-screens:generateReleaseRFile
+> Task :react-native-svg:generateReleaseRFile
+> Task :expo-asset:javaPreCompileRelease
+> Task :expo-clipboard:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-modules-core:javaPreCompileRelease
+> Task :expo-clipboard:generateReleaseBuildConfig
+> Task :expo-constants:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-clipboard:javaPreCompileRelease
+> Task :expo-constants:generateReleaseBuildConfig
+> Task :expo-file-system:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-constants:javaPreCompileRelease
+> Task :expo-file-system:generateReleaseBuildConfig
+> Task :expo-font:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-file-system:javaPreCompileRelease
+> Task :expo-font:generateReleaseBuildConfig
+> Task :expo-keep-awake:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-font:javaPreCompileRelease
+> Task :expo-keep-awake:generateReleaseBuildConfig
+> Task :expo-linking:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-keep-awake:javaPreCompileRelease
+> Task :expo-linking:generateReleaseBuildConfig
+> Task :expo-linking:javaPreCompileRelease
+> Task :expo-system-ui:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-system-ui:generateReleaseBuildConfig
+> Task :expo-system-ui:javaPreCompileRelease
+> Task :expo:javaPreCompileRelease
+> Task :react-native-async-storage_async-storage:generateReleaseBuildConfig
+> Task :react-native-async-storage_async-storage:javaPreCompileRelease
+> Task :react-native-reanimated:generateReleaseBuildConfig
+
+> Task :react-native-async-storage_async-storage:compileReleaseJavaWithJavac
+D:\OSPanel\domains\proxi-mob.loc\node_modules\@react-native-async-storage\async-storage\android\src\main\java\com\reactnativecommunity\asyncstorage\AsyncStorageModule.java:84: warning: [removal] onCatalystInstanceDestroy() in NativeModule has been deprecated and marked for removal
+  public void onCatalystInstanceDestroy() {
+              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\OSPanel\domains\proxi-mob.loc\node_modules\@react-native-async-storage\async-storage\android\src\javaPackage\java\com\reactnativecommunity\asyncstorage\AsyncStoragePackage.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+
+> Task :expo-modules-core:compileReleaseKotlin
+> Task :app:processReleaseResources
+> Task :react-native-reanimated:packageNdkLibs NO-SOURCE
+> Task :react-native-safe-area-context:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-reanimated:javaPreCompileRelease
+> Task :react-native-safe-area-context:generateReleaseBuildConfig
+> Task :react-native-async-storage_async-storage:bundleLibCompileToJarRelease
+
+> Task :react-native-reanimated:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-reanimated:bundleLibCompileToJarRelease
+> Task :react-native-screens:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-safe-area-context:javaPreCompileRelease
+> Task :react-native-screens:generateReleaseBuildConfig
+> Task :react-native-safe-area-context:compileReleaseKotlin
+> Task :react-native-screens:compileReleaseKotlin
+> Task :react-native-screens:javaPreCompileRelease
+> Task :react-native-svg:generateReleaseBuildConfig
+> Task :react-native-svg:javaPreCompileRelease
+> Task :react-native-svg:compileReleaseJavaWithJavac
+D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:388: warning: [removal] processTransform(ReadableArray,double[]) in TransformHelper has been deprecated and marked for removal
+    TransformHelper.processTransform(transforms, sTransformDecompositionArray);
+                   ^
+
+> Task :react-native-safe-area-context:compileReleaseKotlin
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaContextPackage.kt:27:11 'constructor(name: String, className: String, canOverrideExistingModule: Boolean, needsEagerInit: Boolean, hasConstants: Boolean, isCxxModule: Boolean, isTurboModule: Boolean): ReactModuleInfo' is deprecated. use ReactModuleInfo(String, String, boolean, boolean, boolean, boolean)].
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaContextPackage.kt:33:27 'val hasConstants: Boolean' is deprecated. This property is unused and it's planning to be removed in a future version of
+        React Native. Please refrain from using it.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt:59:23 'val uiImplementation: UIImplementation!' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-safe-area-context/android/src/paper/java/com/th3rdwave/safeareacontext/InsetsChangeEvent.kt:19:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+
+> Task :react-native-svg:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+
+> Task :react-native-screens:compileReleaseKotlin
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/CustomToolbar.kt:19:33 'class FrameCallback : Choreographer.FrameCallback' is deprecated. Use Choreographer.FrameCallback instead.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/CustomToolbar.kt:20:18 'class FrameCallback : Choreographer.FrameCallback' is deprecated. Use Choreographer.FrameCallback instead.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt:64:17 'constructor(name: String, className: String, canOverrideExistingModule: Boolean, needsEagerInit: Boolean, hasConstants: Boolean, isCxxModule: Boolean, isTurboModule: Boolean): ReactModuleInfo' is deprecated. use ReactModuleInfo(String, String, boolean, boolean, boolean, boolean)].
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:45:77 Unchecked cast of '(androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<android.view.View!>?..androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<*>?)' to 'com.google.android.material.bottomsheet.BottomSheetBehavior<com.swmansion.rnscreens.Screen>'.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainer.kt:33:33 'class FrameCallback : Choreographer.FrameCallback' is deprecated. Use Choreographer.FrameCallback instead.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainer.kt:34:18 'class FrameCallback : Choreographer.FrameCallback' is deprecated. Use Choreographer.FrameCallback instead.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:257:31 'var targetElevation: Float' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:260:13 'fun setHasOptionsMenu(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:489:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:496:22 'fun onPrepareOptionsMenu(p0: Menu): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:499:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:504:22 'fun onCreateOptionsMenu(p0: Menu, p1: MenuInflater): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfig.kt:100:38 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfigViewManager.kt:7:8 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfigViewManager.kt:209:9 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfigViewManager.kt:211:13 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfigViewManager.kt:213:13 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:7:8 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:375:48 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:376:49 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:377:45 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:378:52 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:379:48 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:380:51 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:381:56 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:382:57 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:383:51 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:55:42 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsetsCompat' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:56:39 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:58:39 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:59:39 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:98:53 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:109:48 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:112:32 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:208:72 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:214:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:5:8 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:142:9 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:144:13 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:146:13 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:148:13 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:150:13 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:152:13 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarManager.kt:154:13 'class MapBuilder : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:7:8 'class ReactFeatureFlags : Any' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:25:13 'class ReactFeatureFlags : Any' is deprecated. Deprecated in Java.
+
+> Task :react-native-safe-area-context:compileReleaseJavaWithJavac
+Note: D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-safe-area-context\android\src\paper\java\com\th3rdwave\safeareacontext\NativeSafeAreaContextSpec.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-safe-area-context:bundleLibCompileToJarRelease
+
+> Task :react-native-screens:compileReleaseJavaWithJavac
+Note: D:\OSPanel\domains\proxi-mob.loc\node_modules\react-native-screens\android\src\paper\java\com\swmansion\rnscreens\NativeScreensModuleSpec.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-screens:bundleLibCompileToJarRelease
+> Task :react-native-svg:bundleLibCompileToJarRelease
+> Task :expo-modules-core:compileReleaseJavaWithJavac
+> Task :expo-modules-core:bundleLibCompileToJarRelease
+> Task :expo-asset:compileReleaseKotlin
+> Task :expo-clipboard:compileReleaseKotlin
+> Task :expo-constants:compileReleaseKotlin
+> Task :expo-file-system:compileReleaseKotlin
+> Task :expo-asset:compileReleaseJavaWithJavac
+> Task :expo-asset:bundleLibCompileToJarRelease
+> Task :expo-clipboard:compileReleaseJavaWithJavac
+> Task :expo-clipboard:bundleLibCompileToJarRelease
+> Task :expo-constants:compileReleaseJavaWithJavac
+> Task :expo-constants:bundleLibCompileToJarRelease
+> Task :expo-font:compileReleaseKotlin
+> Task :expo-file-system:compileReleaseJavaWithJavac
+> Task :expo-file-system:bundleLibCompileToJarRelease
+> Task :expo-font:compileReleaseJavaWithJavac
+> Task :expo-font:bundleLibCompileToJarRelease
+> Task :expo-keep-awake:compileReleaseKotlin
+> Task :expo-linking:compileReleaseKotlin
+> Task :expo-system-ui:compileReleaseKotlin
+> Task :expo-keep-awake:compileReleaseJavaWithJavac
+> Task :expo-keep-awake:bundleLibCompileToJarRelease
+> Task :expo-linking:compileReleaseJavaWithJavac
+> Task :expo-linking:bundleLibCompileToJarRelease
+> Task :expo-system-ui:compileReleaseJavaWithJavac
+> Task :expo-system-ui:bundleLibCompileToJarRelease
+
+> Task :expo:compileReleaseKotlin
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/expo/android/src/main/java/expo/modules/ReactActivityDelegateWrapper.kt:163:34 'constructor(p0: Activity!, p1: ReactNativeHost!, p2: String?, p3: Bundle?): ReactDelegate' is deprecated. Deprecated in Java.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/expo/android/src/main/java/expo/modules/fetch/NativeResponse.kt:40:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///D:/OSPanel/domains/proxi-mob.loc/node_modules/expo/android/src/main/java/expo/modules/fetch/NativeResponse.kt:42:11 'fun deallocate(): Unit' is deprecated. Use sharedObjectDidRelease() instead.
+
+> Task :expo:compileReleaseJavaWithJavac
+> Task :expo:bundleLibCompileToJarRelease
+
+> Task :app:compileReleaseKotlin
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/MainActivity.kt:53:17 Unresolved reference 'handleActivityResult'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:19:8 Unresolved reference 'libbox'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:20:8 Unresolved reference 'libbox'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:23:39 Unresolved reference 'CommandServerHandler'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:33:32 Unresolved reference 'CommandServer'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:124:29 Unresolved reference 'CommandServer'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:125:28 Unresolved reference 'setHandler'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:126:28 Unresolved reference 'start'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:133:28 Unresolved reference 'runCommand'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:155:28 Unresolved reference 'stop'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:165:26 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:165:30 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:165:52 Unresolved reference 'unbindNetworkFromProcess'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:190:41 Unresolved reference 'bindNetworkToProcess'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:199:28 Unresolved reference 'getStats'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:216:5 'reportError' overrides nothing.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/RouteVpnService.kt:220:5 'reportLog' overrides nothing.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:13:70 Unresolved reference 'ReactContextBaseModule'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:15:15 Conflicting declarations:
+companion object Companion : Any
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:27:5 'getName' overrides nothing.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:42:39 Unresolved reference 'currentActivity'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:44:37 Unresolved reference 'startActivityForResult'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:214:5 Only one companion object is allowed per class.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:214:15 Conflicting declarations:
+companion object Companion : Any
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:217:41 Unresolved reference 'instance'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:221:17 Unresolved reference 'instance'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModule.kt:227:9 Unresolved reference 'instance'.
+e: file:///D:/OSPanel/domains/proxi-mob.loc/android/app/src/main/java/com/phoenix/vpn/VpnModulePackage.kt:10:37 Argument type mismatch: actual type is 'com.phoenix.vpn.VpnModule', but 'com.facebook.react.bridge.NativeModule' was expected.
+
+> Task :app:compileReleaseKotlin FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileReleaseKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileReleaseKotlin'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:130)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:128)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:287)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:335)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:318)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:323)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:92)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:252)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:107)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:56)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:61)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:61)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.jetbrains.kotlin.gradle.tasks.CompilationErrorException: Compilation error. See log for more details
+	at org.jetbrains.kotlin.gradle.tasks.TasksUtilsKt.throwExceptionIfCompilationFailed(tasksUtils.kt:21)
+	at org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.run(GradleKotlinCompilerWork.kt:119)
+	at org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction.execute(GradleCompilerRunnerWithWorkers.kt:76)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:174)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:194)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:127)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:169)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:132)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:164)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:133)
+	... 2 more
+
+
+BUILD FAILED in 14m 59s
+241 actionable tasks: 227 executed, 14 up-to-date

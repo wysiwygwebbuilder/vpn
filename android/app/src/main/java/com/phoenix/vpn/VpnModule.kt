@@ -10,7 +10,7 @@ import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.modules.core.DeviceEventManagerModule
 
 @ReactModule(name = VpnModule.NAME)
-class VpnModule(private val reactContext: ReactApplicationContext) : ReactContextBaseModule(reactContext) {
+class VpnModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
     companion object {
         const val NAME = "VpnModule"
