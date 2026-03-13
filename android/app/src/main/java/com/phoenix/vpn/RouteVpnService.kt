@@ -11,32 +11,37 @@ import android.os.Build
 import android.os.IBinder
 import android.os.ParcelFileDescriptor
 import android.util.Log
-import libv2ray.Libv2ray
-import libv2ray.V2RayPoint
-import libv2ray.V2RayVPNServiceSupportsSet
 import org.json.JSONObject
 
-class RouteVpnService : VpnService(), V2RayVPNServiceSupportsSet {
+class RouteVpnService : VpnService() {
 
     companion object {
         private const val TAG = "RouteVpnService"
         private const val NOTIFICATION_CHANNEL_ID = "vpn_service_channel"
         private const val NOTIFICATION_ID = 1
+        
+        init {
+            System.loadLibrary("gojni")
+        }
     }
 
     private val binder = LocalBinder()
     private var parcelFileDescriptor: ParcelFileDescriptor? = null
-    private var v2rayPoint: V2RayPoint? = null
     private var isRunning = false
+    private var v2rayRunning = false
 
     inner class LocalBinder : Binder() {
         fun getService(): RouteVpnService = this@RouteVpnService
     }
 
+    private external fun startV2Ray(configContent: String): Long
+    private external fun stopV2Ray(): Long
+    private external fun getV2RayVersion(): String
+    private external fun checkV2RayRunning(): Boolean
+
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
-        v2rayPoint = Libv2ray.newV2RayPoint(this, false)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -79,23 +84,20 @@ class RouteVpnService : VpnService(), V2RayVPNServiceSupportsSet {
         )
 
         return Notification.Builder(this, NOTIFICATION_CHANNEL_ID)
-            .setContentTitle("Р¤РµРЅРёРєСЃ VPN")
-            .setContentText("VPN РїРѕРґРєР»СЋС‡РµРЅ")
+            .setContentTitle("еникс VPN")
+            .setContentText("VPN подключен")
             .setSmallIcon(R.drawable.ic_notification)
             .setContentIntent(pendingIntent)
             .setOngoing(true)
             .build()
     }
 
-    private fun startVpn(xrayConfig: String) {
+    private fun startVpn(v2rayConfig: String) {
         try {
-            Log.d(TAG, "Starting VPN with xray...")
-
-            v2rayPoint?.configureFileContent = xrayConfig
-            v2rayPoint?.domainName = ""
+            Log.d(TAG, "Starting VPN with v2ray...")
 
             val builder = Builder()
-                .setSession("Р¤РµРЅРёРєСЃ VPN")
+                .setSession("еникс VPN")
                 .setMtu(1500)
                 .addAddress("10.0.0.2", 30)
                 .addRoute("0.0.0.0", 0)
@@ -108,12 +110,17 @@ class RouteVpnService : VpnService(), V2RayVPNServiceSupportsSet {
                 return
             }
 
-            v2rayPoint?.vpnSupportSet = this
-            v2rayPoint?.startCore()
-
-            startForeground(NOTIFICATION_ID, createNotification())
-            isRunning = true
-            Log.d(TAG, "VPN started with xray")
+            val result = startV2Ray(v2rayConfig)
+            if (result == 0L) {
+                v2rayRunning = true
+                startForeground(NOTIFICATION_ID, createNotification())
+                isRunning = true
+                Log.d(TAG, "VPN started with v2ray")
+            } else {
+                Log.e(TAG, "Failed to start v2ray: $result")
+                parcelFileDescriptor?.close()
+                parcelFileDescriptor = null
+            }
 
         } catch (e: Exception) {
             Log.e(TAG, "Start VPN error: ${e.message}", e)
@@ -125,7 +132,11 @@ class RouteVpnService : VpnService(), V2RayVPNServiceSupportsSet {
         try {
             Log.d(TAG, "Stopping VPN...")
 
-            v2rayPoint?.stopCore()
+            if (v2rayRunning) {
+                stopV2Ray()
+                v2rayRunning = false
+            }
+            
             parcelFileDescriptor?.close()
             parcelFileDescriptor = null
 
@@ -141,35 +152,21 @@ class RouteVpnService : VpnService(), V2RayVPNServiceSupportsSet {
 
     fun getStats(): JSONObject {
         return try {
-            val upload = v2rayPoint?.queryStats("", "uplink") ?: 0L
-            val download = v2rayPoint?.queryStats("", "downlink") ?: 0L
             JSONObject().apply {
-                put("upload", upload)
-                put("download", download)
+                put("upload", 0)
+                put("download", 0)
                 put("running", isRunning)
+                put("v2rayRunning", v2rayRunning)
             }
         } catch (e: Exception) {
             JSONObject().apply {
                 put("upload", 0)
                 put("download", 0)
                 put("running", isRunning)
+                put("v2rayRunning", false)
             }
         }
     }
 
     fun isRunning(): Boolean = isRunning
-
-    override fun onEmitStatus(p0: String?) {
-        Log.d(TAG, "xray status: $p0")
-    }
-
-    override fun protect(fd: Long): Boolean {
-        return protect(fd.toInt())
-    }
-
-    override fun getService(): VpnService = this
-
-    override fun startService() {}
-
-    override fun stopService() {}
 }

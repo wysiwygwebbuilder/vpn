@@ -151,7 +151,6 @@ android {
 
 dependencies {
     implementation("com.facebook.react:react-android")
-    implementation files('libs/libv2ray.aar')
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
@@ -177,3 +176,4 @@ dependencies {
         implementation jscFlavor
     }
 }
+

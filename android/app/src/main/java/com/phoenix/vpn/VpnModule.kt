@@ -52,9 +52,9 @@ class VpnModule(private val reactContext: ReactApplicationContext) : BaseJavaMod
                 pendingPromise = promise
                 
                 // Use current activity to start VPN permission
-                val currentActivity = currentActivity
-                if (currentActivity != null) {
-                    currentActivity.startActivityForResult(intent, VPN_PERMISSION_REQUEST_CODE)
+                val activity = reactContext.currentActivity
+                if (activity != null) {
+                    activity.startActivityForResult(intent, VPN_PERMISSION_REQUEST_CODE, null)
                     return
                 }
                 
@@ -144,7 +144,7 @@ class VpnModule(private val reactContext: ReactApplicationContext) : BaseJavaMod
                 putString("error", lastError)
                 putBoolean("running", isConnected)
                 putBoolean("connected", isConnected)
-                putString("engine", "sing-box")
+                putString("engine", "v2ray")
                 putInt("timestamp", (System.currentTimeMillis() / 1024).toInt())
             }
             
@@ -183,7 +183,7 @@ class VpnModule(private val reactContext: ReactApplicationContext) : BaseJavaMod
             lastDebug = "Connected via sing-box"
             sendEvent("onVpnConnected", Arguments.createMap().apply {
                 putBoolean("success", true)
-                putString("engine", "sing-box")
+                putString("engine", "v2ray")
             })
         } catch (e: Exception) {
             Log.e(NAME, "Start service error: ${e.message}", e)
@@ -224,3 +224,7 @@ class VpnModule(private val reactContext: ReactApplicationContext) : BaseJavaMod
         }
     }
 }
+
+
+
+
