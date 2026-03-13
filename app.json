@@ -14,7 +14,10 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.phoenix.vpn"
+      "bundleIdentifier": "com.phoenix.vpn",
+      "buildProperties": {
+        "newArchEnabled": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -22,21 +25,45 @@
         "backgroundColor": "#160a11"
       },
       "predictiveBackGestureEnabled": true,
-      "package": "com.phoenix.vpn"
+      "package": "com.phoenix.vpn",
+      "buildProperties": {
+        "newArchEnabled": false,
+        "compileSdkVersion": 35,
+        "targetSdkVersion": 35,
+        "minSdkVersion": 24
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "15.1",
+            "useFrameworks": "static",
+            "newArchEnabled": false
+          },
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "minSdkVersion": 24,
+            "buildToolsVersion": "35.0.0",
+            "enableProguardInReleaseBuilds": false,
+            "enableShrinkResourcesInReleaseBuilds": false,
+            "kotlinVersion": "2.0.21",
+            "newArchEnabled": false
+          }
+        }
+      ]
     ],
     "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "3b6c3476-5d81-4e75-8203-efd3a404cbab"
+      "router": {
+        "origin": false
       }
-    },
-    "owner": "web-impuls3"
+    }
   }
 }
