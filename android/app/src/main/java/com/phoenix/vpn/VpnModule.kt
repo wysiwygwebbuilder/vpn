@@ -211,10 +211,19 @@ class VpnModule(private val reactContext: ReactApplicationContext) : ReactContex
         }
     }
 
-    // Static method to handle activity result from MainActivity
     companion object {
-        fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-            // This is called from MainActivity
+        private var instance: VpnModule? = null
+        
+        fun getInstance(): VpnModule? = instance
+        
+        fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent?, activity: Activity) {
+            if (requestCode == VPN_PERMISSION_REQUEST_CODE) {
+                instance?.onActivityResult(requestCode, resultCode, data)
+            }
         }
+    }
+
+    init {
+        instance = this
     }
 }

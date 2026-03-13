@@ -47,11 +47,10 @@ class MainActivity : ReactActivity() {
    */
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
-    
+
     // Forward to VpnModule if it's a VPN permission request
     if (requestCode == 1001) {
-      val vpnModule = reactInstanceManager?.currentReactContext?.getNativeModule(VpnModule::class.java)
-      vpnModule?.onActivityResult(requestCode, resultCode, data)
+      VpnModule.handleActivityResult(requestCode, resultCode, data, this)
     }
   }
 
