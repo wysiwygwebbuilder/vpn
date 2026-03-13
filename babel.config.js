@@ -7,18 +7,19 @@ module.exports = function (api) {
         'babel-preset-expo',
         {
           jsxImportSource: 'nativewind',
-          unstable_transformProfile: 'hermes-stable',
         },
       ],
       'nativewind/babel',
     ],
     plugins: [
-      'react-native-reanimated/plugin',
+      [
+        'react-native-reanimated/plugin',
+        {
+          globals: ['__scanCodes', '__scanOCR'],
+          processNestedTransforms: true,
+          disableProcessTransforms: false,
+        },
+      ],
     ],
-    env: {
-      production: {
-        plugins: ['transform-remove-console'],
-      },
-    },
   };
 };

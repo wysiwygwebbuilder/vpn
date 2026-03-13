@@ -42,6 +42,9 @@ yarn-error.*
 *.aab
 *.ipa
 
+# Keep AAR files (native dependencies)
+!android/app/libs/*.aar
+
 # Gradle
 .gradle/
 **/build/

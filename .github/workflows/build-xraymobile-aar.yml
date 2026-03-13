@@ -1,0 +1,54 @@
+name: Build xraymobile AAR
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-aar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r26b
+          add-to-path: true
+
+      - name: Setup gomobile
+        run: |
+          go install golang.org/x/mobile/cmd/gomobile@latest
+          go install golang.org/x/mobile/cmd/gobind@latest
+          gomobile init
+
+      - name: Build xraymobile.aar
+        run: |
+          cd android/xraymobile
+          go mod tidy
+          gomobile bind -target=android/arm64 -androidapi 24 -javapkg=com.phoenix.vpn.xray -o=../app/libs/xraymobile.aar .
+
+      - name: Upload AAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: xraymobile-aar
+          path: android/app/libs/xraymobile.aar
+          retention-days: 30
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'Add xraymobile.aar for VPN functionality'
+          branch: add-xraymobile-aar
+          title: 'Add xraymobile.aar'
+          body: |
+            This PR adds the compiled xraymobile.aar file required for VPN functionality.
+            
+            Built with:
+            - Go 1.21
+            - Android NDK r26b
+            - gomobile bind

@@ -63,7 +63,11 @@
     "extra": {
       "router": {
         "origin": false
+      },
+      "eas": {
+        "projectId": "67aecec1-e755-47e9-9307-2241fa5d1711"
       }
-    }
+    },
+    "owner": "web-impuls4"
   }
 }

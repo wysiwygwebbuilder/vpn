@@ -1,5 +1,7 @@
 package com.phoenix.vpn
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 
@@ -38,6 +40,19 @@ class MainActivity : ReactActivity() {
               mainComponentName,
               fabricEnabled
           ){})
+  }
+
+  /**
+   * Handle VPN permission result
+   */
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    
+    // Forward to VpnModule if it's a VPN permission request
+    if (requestCode == 1001) {
+      val vpnModule = reactInstanceManager?.currentReactContext?.getNativeModule(VpnModule::class.java)
+      vpnModule?.onActivityResult(requestCode, resultCode, data)
+    }
   }
 
   /**

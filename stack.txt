@@ -100,5 +100,8 @@ eas build --platform android --profile preview
 
 eas build --platform android --profile preview --non-interactive
 
+ npx expo start --web
+
+npx eas init 
 
 cd android ; ./gradlew assembleRelease
