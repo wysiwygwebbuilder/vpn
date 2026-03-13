@@ -36,7 +36,6 @@ replay_pid*.log
 .gradle
 **/build/
 !gradle/wrapper/gradle-wrapper.jar
-!android/app/libs/*.aar
-!eas-hooks/
+!android/app/libs/libbox.aar
 .env*.local
 .kotlin

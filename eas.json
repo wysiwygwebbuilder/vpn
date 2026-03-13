@@ -11,8 +11,7 @@
       "android": {
         "buildType": "apk",
         "gradleCommand": ":app:assembleDebug",
-        "image": "latest",
-        "prebuildCommand": "./eas-hooks/eas-build-pre-install.sh"
+        "image": "latest"
       },
       "ios": {
         "image": "latest"
@@ -28,8 +27,7 @@
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease",
         "withoutCredentials": true,
-        "image": "latest",
-        "prebuildCommand": "./eas-hooks/eas-build-pre-install.sh"
+        "image": "latest"
       },
       "ios": {
         "image": "latest"
@@ -45,8 +43,7 @@
       "android": {
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease",
-        "image": "latest",
-        "prebuildCommand": "./eas-hooks/eas-build-pre-install.sh"
+        "image": "latest"
       },
       "ios": {
         "image": "latest"
